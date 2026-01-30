@@ -1,0 +1,120 @@
+{
+  "models": [
+    {
+      "title": "🚀 MLX Current",
+      "provider": "openai",
+      "model": "current",
+      "apiBase": "http://127.0.0.1:8080/v1",
+      "apiKey": "dummy",
+      "roles": ["chat", "edit"],
+      "contextLength": 32768,
+      "description": "現在起動中のMLXモデル（~/switch-mlx.shで切り替え）"
+    }
+  ],
+
+  "tabAutocompleteModel": {
+    "title": "MLX Current",
+    "provider": "openai",
+    "model": "current",
+    "apiBase": "http://127.0.0.1:8080/v1",
+    "apiKey": "dummy"
+  },
+
+  "customCommands": [
+    {
+      "name": "switch-qwen32b",
+      "description": "Qwen 32Bへの切り替え方法を表示",
+      "prompt": "コード生成・開発用にQwen 32B-8bitモデルへの切り替えが必要です。\n\nターミナルで以下を実行してください：\n```bash\n~/switch-mlx.sh qwen32b\n```\n\n実行完了後、もう一度お話しください。"
+    },
+    {
+      "name": "switch-vision",
+      "description": "Llama Visionへの切り替え方法を表示",
+      "prompt": "画像解析用にLlama Vision 11B-8bitモデルへの切り替えが必要です。\n\nターミナルで以下を実行してください：\n```bash\n~/switch-mlx.sh vision\n```\n\n実行完了後、画像を添付してもう一度お話しください。"
+    },
+    {
+      "name": "review",
+      "description": "選択したコードを自動レビュー",
+      "prompt": "以下のコードをレビューして、改善点を指摘してください。\n\n【チェック項目】\n- セキュリティ脆弱性\n- パフォーマンスの問題\n- コードの可読性\n- ベストプラクティス違反\n\n【コード】\n{{{ input }}}\n\n【レビュー結果】\n具体的な改善案と理由を日本語で教えてください。"
+    },
+    {
+      "name": "optimize",
+      "description": "選択したコードを最適化",
+      "prompt": "以下のコードを最適化してください。\n\n【最適化方針】\n- パフォーマンス向上\n- メモリ使用量削減\n- 可読性維持\n\n【元のコード】\n{{{ input }}}\n\n【最適化後のコード】\n改善内容の説明も添えて提示してください。"
+    },
+    {
+      "name": "explain",
+      "description": "選択したコードを詳しく解説",
+      "prompt": "以下のコードを初心者にもわかりやすく解説してください。\n\n【コード】\n{{{ input }}}\n\n【解説】\n- このコードの目的\n- 各行が何をしているか\n- 使用されている技術やパターン"
+    },
+    {
+      "name": "test",
+      "description": "選択したコードのテストケースを生成",
+      "prompt": "以下のコードのユニットテストを作成してください。\n\n【対象コード】\n{{{ input }}}\n\n【テスト要件】\n- 正常系のテスト\n- 異常系のテスト（エラーハンドリング）\n- エッジケースのテスト\n\n使用するテストフレームワークを明記してください。"
+    }
+  ],
+
+  "contextProviders": [
+    {
+      "name": "skills",
+      "params": {
+        "folder": "/Users/hikaru/Desktop/TalkSwitch-Cursor/TalkSwitch-AI/.antigravity/skills"
+      }
+    },
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    },
+    {
+      "name": "diff",
+      "params": {}
+    },
+    {
+      "name": "terminal",
+      "params": {}
+    },
+    {
+      "name": "problems",
+      "params": {}
+    },
+    {
+      "name": "folder",
+      "params": {}
+    },
+    {
+      "name": "codebase",
+      "params": {}
+    }
+  ],
+
+  "embeddingsProvider": {
+    "provider": "transformers.js"
+  },
+
+  "reranker": {
+    "name": "free-trial"
+  },
+
+  "tabAutocompleteOptions": {
+    "useCopyBuffer": false,
+    "maxPromptTokens": 1024,
+    "debounceDelay": 500
+  },
+
+  "ui": {
+    "fontSize": 14,
+    "displayRawMarkdown": false
+  },
+
+  "experimental": {
+    "modelRoles": true,
+    "contextMenuActions": true
+  },
+
+  "allowAnonymousTelemetry": false,
+  "disableSessionTitles": false,
+  "disableIndexing": false
+}
