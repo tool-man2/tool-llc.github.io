@@ -1,0 +1,38 @@
+{
+  "models": [
+    {
+      "title": "Qwen2.5-Coder-32B-8bit (メイン)",
+      "provider": "openai",
+      "model": "Qwen2.5-Coder-32B-Instruct-8bit",
+      "apiBase": "http://127.0.0.1:8080/v1",
+      "apiKey": "dummy",
+      "roles": ["chat", "edit"],
+      "contextLength": 32768
+    }
+  ],
+
+  "tabAutocompleteModel": {
+    "title": "Qwen2.5-Coder-32B-8bit",
+    "provider": "openai",
+    "model": "Qwen2.5-Coder-32B-Instruct-8bit",
+    "apiBase": "http://127.0.0.1:8080/v1",
+    "apiKey": "dummy"
+  },
+
+  "contextProviders": [
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    }
+  ],
+
+  "embeddingsProvider": {
+    "provider": "transformers.js"
+  },
+
+  "allowAnonymousTelemetry": false
+}
